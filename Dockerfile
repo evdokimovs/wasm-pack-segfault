@@ -1,4 +1,5 @@
-FROM rust:1.56.1
+ARG ver=latest
+FROM rust:${ver}
 
 RUN cargo install wasm-pack && rustup target add wasm32-unknown-unknown
 

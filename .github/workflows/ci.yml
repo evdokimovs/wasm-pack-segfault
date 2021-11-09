@@ -6,6 +6,12 @@ jobs:
   docker:
     name: Docker build
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - version: 1.56.1
+          - version: 1.55
+          - version: 1.54
     steps:
       - uses: actions/checkout@v2
-      - run: docker build .
+      - run: docker build --build-arg ver=${{ matrix.version }}
