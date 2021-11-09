@@ -4,5 +4,8 @@ on: push
 
 jobs:
   docker:
-    - uses: actions/checkout@v2
-    - run: docker build .
+    name: Docker build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker build .
